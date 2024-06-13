@@ -1,50 +1,21 @@
+
 public class Tank {
-    private int x; // 坦克的横向坐标
-    private int y; // 坦克的纵向坐标
-    private int  direct = 0;//坦克方向 0上 1右 2下 3左
-    private int speed = 1;//调节坦克速度
-    
-    public int getSpeed() {
-    	return speed;
-    }
-    public void setSpeed(int speed) {
-    	this.speed = speed;
-    }
-    
-    //坦克上右下左移动方法
-    public void moveUp() {//向上
-    	y -= speed;
-    }
-    public void moveRight() {//向右
-        x += speed;
-    }
-
-    public void moveDown() {//向下
-        y += speed;
-    }
-
-    public void moveLeft() {//向左
-        x -= speed;
-    }
-
-    
-    public int getDirect() {
-    	return direct;
-    }
-    public void setDirect(int direct) {
-    	this.direct = direct;
-    }
+    private int x;
+    private int y;
+    private int direction;///坦克方向0-上 1-右 2-下 3-左
+    private int speed = 1;//坦克速度
+    private boolean isLive = true;
 
     public Tank(int x, int y) {
         this.x = x;
-        this.y = y;    
+        this.y = y;
     }
 
     public int getX() {
         return x;
     }
 
-    public void setX(int x) { 
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -55,4 +26,53 @@ public class Tank {
     public void setY(int y) {
         this.y = y;
     }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    //上下左右移动方法
+    public void moveUp(){
+        //坦克不能出边界
+        if (y > 0){
+            y-=speed;
+        }
+    }
+    public void moveRight(){
+        if (x + 60 < 1000){
+            x+=speed;
+        }
+    }
+    public void moveDown(){
+        if (y + 60 < 722){
+            y+=speed;
+        }
+    }
+    public void moveLeft(){
+        if (x > 0){
+            x-=speed;
+        }
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 }
+
+
